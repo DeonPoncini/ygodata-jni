@@ -12,9 +12,11 @@ elseif ("${CROSS_TARGET}" STREQUAL "android")
 endif()
 
 find_package(jniw)
+find_package(ygodata)
 
 include_directories(include)
 include_directories(${JNIW_INCLUDE_DIRS})
+include_directories(${YGODATA_INCLUDE_DIRS})
 
 ################################
 # Locate source
@@ -27,7 +29,7 @@ add_library(ygodata-jni
     ${INCLUDES})
 
 target_link_libraries(ygodata-jni
-    ygodata)
+    ${YGODATA_LIBRARIES})
 
 if ("${CROSS_TARGET}" STREQUAL "linux-64")
     target_link_libraries(ygodata-jni
