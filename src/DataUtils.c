@@ -54,5 +54,7 @@ jobject ygo_data_static_card_data_to_java(JNIEnv* env,
 
     jniw_set_string_field(env, scdClass, scdObj, "text", scd->text);
 
+    (*env)->DeleteLocalRef(env, scdClass);
+
     return scdObj;
 }
